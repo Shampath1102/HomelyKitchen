@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homely Kitchen - Home Food Ordering</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .hero {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .user-section {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .user-card {
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 30px;
+        }
+        .user-card:hover {
+            transform: translateY(-5px);
+        }
+        .user-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .btn-custom {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="display-4">Welcome to Homely Kitchen</h1>
+            <p class="lead">Connecting food lovers with home-cooked meals made by local homemakers.</p>
+            <a href="#users" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <!-- User Sections -->
+    <section id="users" class="user-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Choose Your Role</h2>
+            <div class="row">
+                <!-- Consumer Section -->
+                <div class="col-md-6">
+                    <div class="user-card">
+                        <img src="{{ url_for('static', filename='images/consumer-icon.jpg') }}" alt="Consumer">
+                        <h3>Consumer</h3>
+                        <p>Order delicious home-cooked meals prepared by local homemakers. Fresh, affordable, and delivered to your doorstep.</p>
+                        <a href="{{ url_for('consumer_login') }}" class="btn btn-custom">Consumer Login</a>
+                        <br><br>
+                        <a href="{{ url_for('consumer_signup') }}" class="btn btn-secondary">Sign Up as Consumer</a>
+                    </div>
+                </div>
+
+                <!-- Homemaker Section -->
+                <div class="col-md-6">
+                    <div class="user-card">
+                        <img src="{{ url_for('static', filename='images/homemaker-icon.jpg') }}" alt="Homemaker">
+                        <h3>Homemaker</h3>
+                        <p>Share your culinary skills, earn from home, and bring joy to food lovers by preparing meals.</p>
+                        <a href="{{ url_for('homemaker_login') }}" class="btn btn-custom">Homemaker Login</a>
+                        <br><br>
+                        <a href="{{ url_for('homemaker_signup') }}" class="btn btn-secondary">Sign Up as Homemaker</a>
+                    </div>
+                </div>
+
+                <!-- Delivery Section -->
+                <div class="col-md-6">
+                    <div class="user-card">
+                        <h3>Delivery Orders</h3>
+                        <a href="{{ url_for('delivery_orders') }}" class="btn btn-secondary">Delivery Orders</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Homely Kitchen | Bringing home-cooked meals closer to you.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

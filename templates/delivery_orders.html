@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homemaker Dashboard - Homely Kitchen</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #d9534f;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Homely Kitchen</a>
+            <a class="navbar-brand" href="{{ url_for('homemaker_dashboard') }}">Dashboard</a>
+            <div class="ml-auto">
+                <a href="{{ url_for('profile') }}" class="btn btn-outline-light">Profile</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-light ms-2">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h2 class="text-center">Delivery Boy Dashboard</h2>
+
+        
+            <h4>Your Orders</h4>
+            {% if orders %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Food Item</th>
+                        <th>Consumer</th>
+                        <th>Homemaker</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>{{ order.food_item.name }}</td>
+                        <td>{{ order.consumer.first_name }} {{ order.consumer.last_name }}</td>
+                        <td>{{ order.food_item.homemaker.first_name }} {{ order.food_item.homemaker.last_name }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <td>${{ order.total_price }}</td>
+                        <td>{{ order.status }}</td>
+                        <td>
+                            <form action="{{ url_for('update_order_status', order_id=order.id) }}" method="POST" style="display:inline;">
+                                <input type="hidden" name="status" value="Completed">
+                                <button type="submit" class="btn btn-success btn-sm">Mark as Completed</button>
+                            </form>
+                            <form action="{{ url_for('update_order_status', order_id=order.id) }}" method="POST" style="display:inline;">
+                                <input type="hidden" name="status" value="Pending">
+                                <button type="submit" class="btn btn-warning btn-sm">Mark as Pending</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No orders yet.</p>
+            {% endif %}
+        
+        
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
