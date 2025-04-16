@@ -2,3 +2,4 @@ Flask
 Flask-SQLAlchemy
 Flask-WTF
 Werkzeug
+gunicorn==21.2.0
