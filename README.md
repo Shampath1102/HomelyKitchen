@@ -19,7 +19,7 @@ A **multi-role food ordering platform** that connects home cooks with local food
 - [API Routes](#-api-routes)
 
 
-## ✨ Features
+# ✨ Features
 
 ### 👤 For Consumers (Food Lovers)
 - **Browse Food Items**: View all available homemade dishes with images, prices, and ratings
@@ -301,7 +301,7 @@ HomelyKitchen/
 
 ---
 
-# 🛣️ API Routes
+## 🛣️ API Routes
 
 | Route | Methods | Description | Access |
 |-------|---------|------------|--------|
