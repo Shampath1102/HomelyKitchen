@@ -6,7 +6,6 @@ A **multi-role food ordering platform** that connects home cooks with local food
 ![Flask](https://img.shields.io/badge/Flask-2.x-green)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.x-orange)
-![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ## 📋 Table of Contents
 - [Features](#-features)
